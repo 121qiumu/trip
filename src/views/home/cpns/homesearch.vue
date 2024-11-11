@@ -1,7 +1,7 @@
 <template>
   <div class="homesearch">
     <div class="location">
-      <div class="city">
+      <div class="city" @click="CityClick">
         <span class="text">广州</span>
       </div>
       <div class="position">
@@ -13,6 +13,11 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+const router = useRouter()
+const CityClick = () => {
+  router.push("/city")
+}
 
 </script>
 
@@ -25,6 +30,10 @@
 
     .city {
       flex: 1;
+      .text {
+        margin-left: 6px;
+        font-size: 15px;
+      }
     }
 
     .position {
@@ -32,8 +41,12 @@
       justify-content: center;
       align-items: center;
 
+      .text {
+        font-size: 15px;
+      }
+
       img {
-        padding-left: 3px;
+        padding-left: 1px;
         padding-right: 2px;
         height: 27px;
         width: 27px;
